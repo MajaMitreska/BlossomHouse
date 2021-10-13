@@ -12,4 +12,6 @@ The admin role has more responsibilities, they can add new products and edit/del
 Moreover, if you are not registered user, you can register directly through a form on the website or register/sing in through Google.
 Additionally, an e-mail is sent whether the order was successful.
 
+This project was a team work of @MajaMitreska, @ennatunte and @filippetreski
+
 
