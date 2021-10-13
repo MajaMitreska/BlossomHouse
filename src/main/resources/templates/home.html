@@ -1,0 +1,343 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="container">
+
+
+        <div class="jumbotron mt-5 p-3 p-md-5 text-dark rounded text-white"
+             style=" background-image: url(http://i.imgur.com/kLxfy9q.jpg); background-size: 100%; object-fit: cover">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 font-italic">Blossom House</h1>
+                <h4 class="font-italic"> “Love is the flower you’ve got to let grow.” </br>– John Lennon</h4>
+                <p class="lead mt-5 my-3">Your best online Flower, Plant & Gift shop.</p>
+                <p class="lead mb-0"><a href="/products/flowers" class="btn btn-light">See our Products</a></p>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-4">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary" style="font-color: gray">Flowers</strong>
+                        <h3 class="mb-0">
+                            Flower Shop
+                        </h3>
+                        <p class="card-text mb-auto mt-5">Visit our flower shop to find the best one for you.</p>
+
+                        <a class=" btn btn-primary" href="/products/flowers" style="background-color: #007cad">Shop Now</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                         alt="Thumbnail [200x250]"
+                         src="http://i.imgur.com/78eA2RR.jpg"
+                         data-holder-rendered="true" style="width: 200px; height: 250px; object-fit: cover">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary" style="font-color: gray">Plants</strong>
+                        <h3 class="mb-0">
+                            Plant Shop
+                        </h3>
+                        <p class="card-text mb-auto mt-5">Visit our plant shop to find the best one for you.</p>
+
+                        <a class=" btn btn-primary" href="/products/plants" style="background-color: #007cad">Shop Now</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                         alt="Thumbnail [200x250]"
+                         src="http://i.imgur.com/2SZYugW.jpg"
+                         data-holder-rendered="true" style="width: 200px; height: 250px; object-fit: cover">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                        <strong class="d-inline-block mb-2 text-primary" style="font-color: gray">Gifts</strong>
+                        <h3 class="mb-0">
+                            Gift Shop
+                        </h3>
+                        <p class="card-text mb-auto mt-5"> Visit our gift shop to find the best one for you.</p>
+
+                        <a class=" btn btn-primary" href="/products/gifts" style="background-color: #007cad">Shop Now</a>
+                    </div>
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
+                         alt="Thumbnail [200x250]"
+                         src="http://i.imgur.com/EnGZOuT.jpg"
+                         data-holder-rendered="true" style="width: 200px; height: 250px; object-fit: cover">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron jumbotron-fluid bg-white text-center">
+
+        <div class="container text-dark" style="background-color: #caf0f8">
+            <h3 class="display-4 font-weight-bold">Best Selling Flowers</h3>
+            <p class="lead">Please check out our selection of fresh bouquets.</p>
+            <div class="row">
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px"  th:if="${flower1} != null"
+                                             th:src="@{${'/Images/' + '/' + flower1.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${flower1} != null ? ${flower1.getId()} : '')">
+                            <div>
+                                <div class="align-content-center justify-content-center"
+                                     th:text="(${flower1} != null ? ${flower1.getName()} : '')"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px"  th:if="${flower2} != null"
+                                             th:src="@{${'/Images/' + '/' + flower2.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${flower2} != null ? ${flower2.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${flower2} != null ? ${flower2.getName()} : '')"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px"  th:if="${flower3} != null"
+                                             th:src="@{${'/Images/' + '/' + flower3.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${flower3} != null ? ${flower3.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${flower3} != null ? ${flower3.getName()} : '')"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container text-dark mt-5" style="background-color: #edf2fb">
+            <h3 class="display-4 font-weight-bold">Best Selling Plants</h3>
+            <p class="lead">Please check out our selection of unique plants.</p>
+            <div class="row">
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px" th:if="${plant1} != null"
+                                             th:src="@{${'/Images/' + '/' + plant1.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${plant1} != null ? ${plant1.getId()} : '')">
+                            <div>
+                                <div class="align-content-center justify-content-center"
+                                     th:text="(${plant1} != null ? ${plant1.getName()} : '')"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img th:if="${plant2} != null"
+                                             th:src="@{${'/Images/' + '/' + plant2.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${plant2} != null ? ${plant2.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${plant2} != null ? ${plant2.getName()} : '')"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px" th:if="${plant3} != null"
+                                             th:src="@{${'/Images/' + '/' + plant3.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${plant3} != null ? ${plant3.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${plant3} != null ? ${plant3.getName()} : '')"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div style="background-color: #fae8ed" class="container text-dark mt-5">
+
+            <h3 class="display-4 font-weight-bold">Best Selling Gifts</h3>
+            <p class="lead">Please check out our selection of wonderful gifts.</p>
+
+            <div class="row ">
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px"  th:if="${gift1} != null"
+                                             th:src="@{${'/Images/' + '/' + gift1.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${gift1} != null ? ${gift1.getId()} : '')">
+                            <div>
+                                <div class="align-content-center justify-content-center"
+                                     th:text="(${gift1} != null ? ${gift1.getName()} : '')"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px"  th:if="${gift2} != null"
+                                             th:src="@{${'/Images/' + '/' + gift2.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${gift2} != null ? ${gift2.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${gift2} != null ? ${gift2.getName()} : '')"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <div>
+                            <div class="col mb-3 mt-3">
+                                <div class="col">
+                                    <div>
+                                        <img style="border-radius: 10px" th:if="${gift3} != null"
+                                             th:src="@{${'/Images/' + '/' + gift3.getImage() }}"
+                                             width="200" height="200"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="justify-content-center">
+                            <input id="id" type="hidden" name="id"
+                                   th:value="(${gift3} != null ? ${gift3.getId()} : '')">
+                            <div>
+                                <div class="justify-content-center"
+                                     th:text="(${gift3} != null ? ${gift3.getName()} : '')"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</th:block>

@@ -1,0 +1,59 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+    <div class="container" style="max-width: 700px">
+        <div class="row align-items-center">
+        <div class="py-5 text-center">
+            <h2>Payment Information</h2>
+            <form class="needs-validation" novalidate method="POST" action="/payment-information">
+                <p class="lead">Please fill in the information below</p>
+
+                <div th:if="${hasError}">
+                    <h5 class="text-center text-danger" th:text="${error}"></h5>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cardOwner">Name on card</label>
+                        <input type="text" class="form-control" id="cardOwner" name="cardOwner"
+                               placeholder="Full Name" required="" autofocus="">
+                        <small class="text-muted">Full name as displayed on card</small>
+                        <div class="invalid-feedback">
+                            Name on card is required
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cardNumber">Credit card number</label>
+                        <input type="text" class="form-control" id="cardNumber" name="cardNumber"
+                               placeholder="Enter card number" required="" autofocus="">
+                        <div class="invalid-feedback">
+                            Credit card number is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="expDate">Expiration</label>
+                        <input type="text" class="form-control" id="expDate" name="expDate"
+                               placeholder="MM/YY" required="" autofocus="">
+                        <div class="invalid-feedback">
+                            Expiration date required
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="form-control" id="cvc" name="cvc" placeholder="CVC" required="" autofocus="">
+                        <div class="invalid-feedback">
+                            Security code required
+                        </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Process Payment</button>
+                <a class="btn btn-secondary btn-lg btn-block" href="/delivery-information" style="margin-bottom: 100px">Back</a>
+            </form>
+        </div>
+
+        </div>
+    </div>
+    </div>
+</th:block>

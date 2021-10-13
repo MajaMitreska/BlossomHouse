@@ -1,0 +1,25 @@
+<div style="width: 600px" class="container" xmlns:th="http://www.thymeleaf.org">
+    <form class="form-signin mt-xl-5" method="post" action="/login">
+        <h2 class="form-signin-heading">Sign in</h2>
+        <div th:if="${hasError}">
+            <h5 class="text-center text-danger" th:text="${error}"></h5>
+        </div>
+        <p>
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
+                   autofocus="">
+        </p>
+        <p>
+            <label for="password" class="sr-only">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                   required="">
+        </p>
+        <button id="submit" class="btn btn-lg btn-primary btn-block" style="background-color: #eb4a50; border-color: white;"  type="submit">Sign in</button>
+        <a href="/register" class="btn btn-lg btn-block btn-light mt-2" style="background-color: #007cad; color: white; border-color: white;">Register here</a>
+        <a id="submit" href="/oauth2/authorization/google" class="btn btn-lg btn-block btn-light mt-2" style=" margin-bottom:300px; background: white; border-color: gray;"><i class="fa fa-google ui-g-12"></i>    Login with Google</a>
+
+
+
+    </form>
+</div>
+

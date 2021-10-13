@@ -1,0 +1,86 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="container mt-5">
+        <div>
+            <div class="col mb-3">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12">
+                        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                            <a href="/products/add-product" class="btn btn-block btn-dark" style="width: 200px">Add new product</a>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container  align-middle">
+        <div class="row">
+            <div class="col-9" th:if="${products.size() <= 0}">
+                <h4 style="text-align: center">No such products</h4>
+            </div>
+
+            <div class="col-12" th:if="${products.size() > 0}">
+                <div class="row align-middle">
+                    <tr th:each="product : ${products}">
+                        <div class="col-sm-4 mb-5 align-middle">
+                            <div class="card">
+                                <div>
+                                    <a th:href="@{'/products/{id}/details' (id=${product.getId()})}">
+                                        <img th:src="@{${'/Images/' + product.getImage() }}" width="100%"
+                                             height="auto"/>
+                                    </a>
+                                </div>
+
+                                <div class="card-body">
+                                    <h3 th:text="${product.getName()}"></h3>
+                                    <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                        <p th:text="${product.getSupplier() != null} ? 'Supplier: '+${product.getSupplier().getName()} : 'No Supplier'"></p>
+                                        <p th:text="${product.getQuantity() != null} ? 'Quantity in stock: '+${product.getQuantity()} : 'Out of stock'"></p>
+                                    </th:block>
+                                    <h5 th:text="${product.getPrice()}+MKD"></h5>
+
+                                    <td class="text-right">
+                                        <div class="d-flex justify-content-between">
+
+                                            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <form th:action="@{'/products/delete/{id}' (id=${product.getId()})}"
+                                                      th:method="POST">
+                                                    <button style="height: 36px" type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>   Delete</button>
+                                                </form>
+                                            </th:block>
+
+                                            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+                                                <a style="height: 36px; text-align:center;display:block;" th:href="@{'/products/edit/{id}' (id=${product.getId()})}" class="btn btn-sm btn-info text-white justify-content-center align-items-center">
+                                                   <i class="fa fa-edit"></i>   Edit</a>
+                                            </th:block>
+
+                                            <form th:action="@{'/shopping-cart/add-product/{id}' (id=${product.getId()})}"
+                                                  th:method="POST">
+                                                <button style="height: 36px" type="submit"
+                                                        class="btn btn-sm btn-primary"><i class="fa fa-cart-plus"></i>   Add to
+                                                    Cart
+                                                </button>
+                                            </form>
+
+                                            <form method="post" th:action="@{'/products/{id}/like' (id=${product.id})}">
+                                                <button style="background: white; border-color: gray; height: 36px;" type="submit"
+                                                        class="btn btn-light btn-sm swap like-item"><i
+                                                        class="fa fa-thumbs-up"></i>   Like
+                                                    <th:block th:text="${product.likes}"></th:block>
+                                                </button>
+
+                                            </form>
+
+                                        </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </tr>
+                </div>
+
+
+</th:block>
+

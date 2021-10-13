@@ -1,0 +1,66 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+<header>
+    <nav class="navbar navbar-expand-md navbar-white text-dark bg-white border-bottom">
+        <div class="container">
+            <a href="/home"><img src="/Images/Logo.png"   height="50"></a>
+
+<!--            <a class="navbar-brand text-dark " href="/home">Blossom House</a>-->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse text-dark justify-content-end" id="navbarsExampleDefault">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item m-auto">
+                        <a class="nav-link active text-dark" href="/products/flowers">Flowers</a>
+                    </li>
+                    <li class="nav-item m-auto">
+                        <a class="nav-link active text-dark" href="/products/plants">Plants</a>
+                    </li>
+                    <li class="nav-item m-auto">
+                        <a class="nav-link active text-dark" href="/products/gifts">Gifts</a>
+                    </li>
+                </ul>
+
+
+                <form class="form-inline my-2 my-lg-0" th:action="@{'/products/search/'}" th:method="POST">
+                    <div class="input-group input-group-sm">
+                        <input type="text"
+                               id = "searchString"
+                               name = "searchString"
+                               class="form-control"
+                               aria-label="Small"
+                               aria-describedby="inputGroup-sizing-sm"
+                               placeholder="Search...">
+                        <div class="input-group-append">
+                            <button type="button"  class="btn btn-secondary btn-number" style="background-color: #007cad; border-color: white;">
+                                <i class="fa fa-search" style="width: 50px; font-size:15px;"> </i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a href="/#" class="btn btn-sm ml-3" style="background: white; border-color: gray;">
+                            <i class="fa fa-user" style="font-size:15px;"></i>
+                        <th:block th:if="${remoteUser != null}" th:text="${remoteUser}"></th:block>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-dark btn-sm ml-3" href="/shopping-cart">
+                            <i class="fa fa-shopping-cart" style=" font-size: 15px;"></i>
+                            <th:block th:if="${numProducts != null}" th:text="${numProducts}"></th:block>
+                        </a>
+                        <!--<button th:text="${numProducts}"></button>-->
+                    </li>
+                    <li class="nav-item"><a class="btn btn-primary btn-sm ml-3" style="background: #eb4a50; border-color: white;" href="/logout">
+                        <i class="fa fa-sign-in" style="background: #eb4a50; width: 20px; font-size:15px;"></i> <th:block th:text="${#request.getRemoteUser() != null} ? 'Sign Out' : 'Login'"></th:block>
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+</th:block>
+

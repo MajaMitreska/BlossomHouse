@@ -1,0 +1,263 @@
+<!--<th:block xmlns:th="http://www.thymeleaf.org">-->
+<!--    <div class="container" xmlns:th="http://www.thymeleaf.org"></div>-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+
+<!--            <div class="col-6 ">-->
+<!--                <form class="form-signin mt-xl-5" method="post" action="/delivery-information">-->
+<!--                    <h2 class="form-signin-heading">Delivery Information</h2>-->
+<!--                    <p>-->
+<!--                        <label for="name" class="sr-only">Name</label>-->
+<!--                        <input type="text" id="name" name="name" class="form-control" placeholder="Full name" required="" autofocus="">-->
+<!--                    </p>-->
+
+<!--                    <p>-->
+<!--                        <label for="address" class="sr-only">Address</label>-->
+<!--                        <input type="text" id="address" name="address" class="form-control" placeholder="Address" required=""-->
+<!--                               autofocus="">-->
+<!--                    </p>-->
+
+<!--                    <p>-->
+<!--                        <label for="phoneNumber" class="sr-only">Phone number</label>-->
+<!--                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone number"-->
+<!--                               required="" autofocus="">-->
+<!--                    </p>-->
+
+<!--                    <p>-->
+<!--                        <label for="email" class="sr-only">E-Mail</label>-->
+<!--                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required=""-->
+<!--                               autofocus="">-->
+<!--                    </p>-->
+
+
+<!--                    <div class="container mb-4">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-12" th:if="${products.size() > 0}">-->
+<!--                                <div class="table-responsive">-->
+<!--                                    <table class="table table-striped">-->
+<!--                                        <thead>-->
+<!--                                        <tr>-->
+<!--                                            <th scope="col"></th>-->
+<!--                                            <th scope="col">Product name</th>-->
+<!--                                            <th scope="col">Price</th>-->
+<!--                                        </tr>-->
+<!--                                        </thead>-->
+<!--                                        <tbody>-->
+<!--                                        <tr th:each="product : ${products}">-->
+<!--                                            <td><img th:src="@{${'/Images/' + product.getImage() }}" width="50" height="50"/>-->
+<!--                                            </td>-->
+<!--                                            <td th:text="${product.getName()}"></td>-->
+<!--                                            <td th:text="${product.getPrice()}+MKD"></td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                                <div>-->
+<!--                                    <p>Total amount:-->
+<!--                                        <th:block th:text="${totalAmount}+MKD"></th:block>-->
+<!--                                    </p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                    <button class="btn btn-success btn-sm ml-3" type="submit">PLACE ORDER</button>-->
+<!--                    <a href="/shopping-cart" class="btn btn-light">BACK</a>-->
+<!--                </form>-->
+
+<!--            </div>-->
+
+<!--            <div class="col-6">-->
+<!--                <form class="form-signin mt-xl-5" method="post" action="/delivery-information">-->
+<!--                    <h2 class="form-signin-heading">Payment Information</h2>-->
+<!--                        <p>-->
+<!--                            <label for="name" class="sr-only">Name On Card</label>-->
+<!--                            <input type="text" id="name" name="name" class="form-control" placeholder="Name On Card" required="" autofocus="">-->
+<!--                        </p>-->
+<!--                        <p>-->
+<!--                            <label for="name" class="sr-only">Card Number</label>-->
+<!--                            <input type="text" id="name" name="name" class="form-control" placeholder="Card Number" required="" autofocus="">-->
+<!--                        </p>-->
+<!--                    <div class='form-row'>-->
+<!--                        <div class='col-xs-4 form-group cvc required'>-->
+<!--                            <p>-->
+<!--                                <label for="name" class="sr-only">CVC</label>-->
+<!--                                <input type="text" id="name" name="name" class="form-control" placeholder="CVC" required="" autofocus="">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                        <div class='col-xs-4 form-group expiration required'>-->
+<!--                            <p>-->
+<!--                                <label for="name" class="sr-only">Expiration</label>-->
+<!--                                <input type="text" id="name" name="name" class="form-control" placeholder="Expiration" required="" autofocus="">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                        <div class='col-xs-4 form-group expiration required'>-->
+<!--                            <p>-->
+<!--                                <label for="name" class="sr-only">MM/YY</label>-->
+<!--                                <input type="text" id="name" name="name" class="form-control" placeholder="MM/YY" required="" autofocus="">-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="row">-->
+<!--            <div class="">-->
+<!--                <a href="" class="btn btn-primary" style="width: 300px">Place Order </a>-->
+<!--                <a href="" class="btn btn-secondary" style="width: 300px">Go Back to Shopping</a>-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+
+
+<!--        <a href="/card-information" class="btn btn-primary"> Place Order</a>-->
+
+<!--    </div>-->
+<!--</th:block>-->
+
+<th:block xmlns:th="http://www.thymeleaf.org">
+    <div class="container" xmlns:th="http://www.thymeleaf.org"></div>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2>Delivery and Checkout Information</h2>
+            <p class="lead">Please fill in the information below</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Your cart</span>
+                    <span class="badge badge-secondary badge-pill">
+                        <th:block th:if="${numProducts != null}" th:text="${numProducts}"></th:block>
+                    </span>
+                </h4>
+                <ul class="list-group mb-3">
+                    <div th:each="product : ${products}">
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">
+                                    <th:block th:text="${product.getName()}"></th:block>
+                                </h6>
+                                <small class="text-muted">
+                                    <th:block th:text="${product.getCategory().getName()}"></th:block>
+                                </small>
+                            </div>
+                            <span class="text-muted">
+                            <th:block th:text="${product.getPrice()}+MKD"></th:block>
+                        </span>
+                        </li>
+                    </div>
+
+                    <li class="list-group-item d-flex justify-content-between">
+                        <span>Total amount:</span>
+                        <strong>
+                            <th:block th:text="${totalAmount}+MKD"></th:block>
+                        </strong>
+                    </li>
+                </ul>
+
+                <form class="card p-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Promo code">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Billing address</h4>
+                <form class="needs-validation" novalidate method="POST" action="/delivery-information">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name">Full name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Please enter Your full name" required>
+                            <div class="invalid-feedback">
+                                Valid full name is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phoneNumber">Phone number <span class="text-muted"></span></label>
+                        <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="+389 71 123 456">
+                        <div class="invalid-feedback">
+                            Please enter a valid phone number for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="15 Yemen Road, Yemen" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="country">City</label>
+                            <select class="custom-select d-block w-100" id="country" required>
+                                <option value="">Choose...</option>
+                                <option>Skopje</option>
+                                <option>Ohrid</option>
+                                <option>Bitola</option>
+                                <option>Pehchevo</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid city.
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="zip">Zip</label>
+                            <input type="text" class="form-control" id="zip" placeholder="" required>
+                            <div class="invalid-feedback">
+                                Zip code required.
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <h4 class="mb-3">Delivery date</h4>
+                    <div class="mb-3">
+                        <label for="date">Choose Your preferred delivery date</label>
+                        <input type="date" class="form-control" id="date" name="date" placeholder="dd-mm-yyyy">
+                        <div class="invalid-feedback">
+                            Please enter the date You want Your product delivered.
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" id="male" name="gender" value="male">
+                        <label for="male">Shipping address is the same as my billing address</label><br>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" id="female" name="gender" value="female">
+                        <label for="male">Save this information for next time</label><br>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Place order</button>
+                    <a class="btn btn-secondary btn-lg btn-block" href="/shopping-cart">Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</th:block>

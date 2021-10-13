@@ -1,0 +1,31 @@
+SHOPPING CART:
+- button to remove product from shopping cart ✓
+- add product picture ✓
+- quantity for product (increment, decrement) ✓
+- remove manufacturer from shopping cart ✓
+- solve problem with deleting product that already exists in someone's shopping cart
+- TOTAL AMOUNT form ✓
+- number of products icon on shopping cart ✓
+- BUY button -> delivery-info ✓
+
+LOGIN:
+- change name ✓
+
+DELIVERY INFO:
+- template ✓
+- button PAY -> payment-information ✓
+- CALENDAR
+
+PAYMENT INFORMATION:
+-  SUBMIT button -> successful-order ✓
+
+LOGIN/REGISTER:
+- SPRING SOCIAL ✓
+
+EMAIL:
+- new account (gmail account Blossom)
+- implementation
+- message
+
+CALENDAR:
+-

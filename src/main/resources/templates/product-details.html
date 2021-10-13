@@ -1,0 +1,27 @@
+
+<div class="container">
+    <div class="row mt-5">
+
+            <div class="col-6 ">
+                <img style="border-radius: 10px" th:src="@{${'/Images/' + product.getImage() }}" width="500" height="500"/>
+            </div>
+            <div class="col-6">
+                <h4 class="tex">Product name: <h2 style="color: #007cad"><td th:text="${product.getName()}"></td></h2> </h4>
+                <br>
+                <h4 class="tex">Price: <h2><td th:text="${product.getPrice()}+MKD"></td></h2> </h4>
+                <br>
+                <h4 class="tex">Description:</h4>
+                <p class="md-5"><td th:text="${product.getDescription()}"></td></p>
+                <h4>Details:</h4>
+                <p class="justify"> <td th:text="${product.getDetails()}"></td> </p>
+
+                <form th:action="@{'/shopping-cart/add-product/{id}' (id=${product.getId()})}"
+                      th:method="POST">
+                    <button  class="btn btn-sm btn-primary" type="submit" style="font-size: 20px"> <i class="fa fa-cart-plus mr-2"></i>Add to Cart
+                    </button>
+                </form>
+            </div>
+
+
+    <div>
+</div>

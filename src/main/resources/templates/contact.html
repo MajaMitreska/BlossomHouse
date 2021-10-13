@@ -1,0 +1,61 @@
+
+
+<th:block xmlns:th="http://www.thymeleaf.org">
+
+    <div class="container" style="max-width: 700px">
+        <div class="row align-items-center">
+            <div class="py-5 text-center">
+                <h2>Contact Us</h2>
+                <form class="needs-validation" novalidate method="POST" action="/contact">
+                    <p class="lead">Please fill in the information below</p>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+
+                            <input type="text" class="form-control" id="firstName" name="firstName"
+                                   placeholder="First Name" required>
+                            <div class="invalid-feedback">
+                                Name on card is required
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" id="lastName" name="lastName"
+                                   placeholder="Last Name" required>
+                            <div class="invalid-feedback">
+                                Name on card is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" id="number" name="number"
+                                   placeholder="Phone Number" required>
+                            <div class="invalid-feedback">
+                                Phone Number required
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-">
+                            <input type="text" class="form-control" id="email" name="email"
+                                   placeholder="Email Address" required>
+                            <div class="invalid-feedback">
+                                Email Address required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <textarea class="form-control" id="reason" name="reason" placeholder="Your Reason for contacting Us" rows="3"></textarea>
+                        </div>
+                    </div>
+
+
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Contact Us</button>
+                    <a class="btn btn-secondary btn-lg btn-block" href="/home" style="margin-bottom: 100px">Back</a>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</th:block>
